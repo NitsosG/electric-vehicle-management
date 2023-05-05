@@ -1,0 +1,46 @@
+# Built application files
+*.apk
+*.ap_
+*.aab
+*.aab.zip
+
+# Files for the Android Studio IDE
+*.iml
+.idea/
+.gradle/
+/local.properties
+
+# Generated files
+build/
+
+# External libraries
+libs/
+
+# Log files
+*.log
+
+# Android Studio configuration files
+navigation/.navigation
+captures/
+
+# Proguard files
+proguard-rules.pro
+proguard-project.txt
+
+# Signing files
+*.jks
+*.keystore
+*.p12
+
+# Android test output
+test-results/
+
+# Crashlytics
+crashlytics.properties
+
+# Firebase/Google Services
+google-services.json
+google-services-plugin.properties
+gradle
+gradlew.bat
+gradlew

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarProfileSetup">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/profileNameLabel"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Profile Name"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:id="@+id/profileNameValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Profile One" />
+
+        <TextView
+            android:id="@+id/plateNumberLabel"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Profile Name"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:id="@+id/plateNumberValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="IZZ 7224" />
+
+        <TextView
+            android:id="@+id/brandLabel"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Brand"
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/brandSpinner"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="34dp" />
+
+        <TextView
+            android:id="@+id/modelLabel"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Model"
+            android:gravity="center"
+            />
+
+        <Spinner
+            android:id="@+id/modelSpinner"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="34dp" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="387dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            />
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
