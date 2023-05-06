@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarProfileSetup">
+    tools:context=".VehicleProfileSetup">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -39,7 +39,7 @@
             android:layout_height="34dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:text="Profile Name"
+            android:text="PLate Number"
             android:gravity="center"/>
 
 
@@ -88,7 +88,7 @@
             tools:layout_editor_absoluteY="34dp" />
 
         <Button
-            android:id="@+id/submitButton"
+            android:id="@+id/vehicle_profile_submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Submit"
