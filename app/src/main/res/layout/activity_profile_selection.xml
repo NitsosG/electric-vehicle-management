@@ -6,25 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".ProfileSelection">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/profiles_label"
+        <LinearLayout
+            android:id="@+id/profile_selection_linear_layout"
             android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:gravity="center"
-            android:text="Profiles"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/profiles_label"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:gravity="center"
+                android:text="Profiles"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </FrameLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <Button
             android:id="@+id/create_new_profile_button"
@@ -35,7 +40,6 @@
             android:text="New Profile"
             tools:layout_editor_absoluteX="153dp"
             tools:layout_editor_absoluteY="387dp" />
-
-    </LinearLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

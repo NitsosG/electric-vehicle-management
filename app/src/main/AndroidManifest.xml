@@ -23,11 +23,6 @@
             android:name=".VehicleProfileSetup"
             android:exported="true">
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.ElectricVehicleManagement.NoActionBar"></activity>
     </application>
 
 </manifest>
