@@ -1,24 +1,24 @@
 package aueb.msc
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import aueb.msc.db.DatabaseHelper
+import aueb.msc.db.AppDatabaseRoom
+import aueb.msc.model.Brand
 import aueb.msc.model.Profile
 
 class VehicleProfileSetup : AppCompatActivity() {
 
-    private lateinit var databaseHelper: DatabaseHelper
     private val activity = this@VehicleProfileSetup
+    private lateinit var database: AppDatabaseRoom
+    private lateinit var brands : MutableList<Brand>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vehicle_profile_setup)
-        databaseHelper = DatabaseHelper(activity)
-
-        // Define the list of items to display in the dropdown list
-        val brands = databaseHelper.getAllBrands()
+        initObjects()
 
         // Create an adapter to populate the dropdown list with the items
         val brandAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, brands)
@@ -41,7 +41,7 @@ class VehicleProfileSetup : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                val models = databaseHelper.getBrandModels(brands[position].code)
+                val models = database.roomDao().getBrandModels(brands[position].code)
                 modelSpinner.adapter = ArrayAdapter(activity, android.R.layout.simple_spinner_dropdown_item, models)
             }
 
@@ -56,7 +56,17 @@ class VehicleProfileSetup : AppCompatActivity() {
             val profileName = findViewById<EditText>(R.id.profileNameValue).text.toString()
             val plateNumber = findViewById<EditText>(R.id.plateNumberValue).text.toString()
             val modelSelected = modelSpinner.selectedItem.toString()
-            databaseHelper.addProfile(Profile(profileName, plateNumber, modelSelected))
+            database.roomDao().addProfile(Profile(profileName, plateNumber, modelSelected))
+            // Redirect to Profiles activity
+            val intent = Intent(activity, ProfileSelection::class.java)
+            startActivity(intent)
         }
+    }
+
+    private fun initObjects() {
+        database = AppDatabaseRoom.getAppDatabase(this)!!
+        val result : List<Brand> = database.roomDao().getBrands()
+        brands = ArrayList()
+        brands.addAll(result)
     }
 }

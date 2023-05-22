@@ -1,7 +1,7 @@
 package aueb.msc.model
 
-data class Model(val code: String , val name: String, val brandCode: String){
-    override fun toString(): String {
-        return code;
-    }
-}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class Model(@PrimaryKey val code: String , val name: String, val brandCode: String)
