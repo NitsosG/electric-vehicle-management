@@ -120,10 +120,10 @@ class DatabaseHelper(context: Context) :
     }
 
     @SuppressLint("Range")
-    fun getAllProfileNames() : List<String> {
-        val columns = arrayOf(COLUMN_PROFILE_NAME)
+    fun getAllProfileNames() : List<Profile> {
+        val columns = arrayOf(COLUMN_PROFILE_NAME, COLUMN_PLATE_NUMBER, COLUMN_MODEL_CODE)
         val sortOrder = "$COLUMN_PROFILE_NAME ASC"
-        val profileNames = ArrayList<String>()
+        val profiles = ArrayList<Profile>()
         val db = this.readableDatabase;
         val cursor = db.query(
             "profile", //Table to query
@@ -136,13 +136,17 @@ class DatabaseHelper(context: Context) :
         )         //The sort order
         if (cursor.moveToFirst()) {
             do {
-                val profileName = cursor.getString(cursor.getColumnIndex(COLUMN_PROFILE_NAME))
-                profileNames.add(profileName)
+                val profile = Profile(
+                    name = cursor.getString(cursor.getColumnIndex(COLUMN_PROFILE_NAME)),
+                    plateNumber = cursor.getString(cursor.getColumnIndex(COLUMN_PLATE_NUMBER)),
+                    modelCode = cursor.getString(cursor.getColumnIndex(COLUMN_MODEL_CODE))
+                )
+                profiles.add(profile)
             } while (cursor.moveToNext())
         }
         cursor.close()
         db.close()
-        return profileNames
+        return profiles;
     }
 
     private val COLUMN_BRAND_CODE = "brand_code"

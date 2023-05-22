@@ -1,45 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ProfileSelection">
 
-    <FrameLayout
+    <LinearLayout
+        android:id="@+id/profile_selection_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/profile_selection_linear_layout"
+        <TextView
+            android:id="@+id/profiles_label"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="34dp"
+            android:gravity="center"
+            android:text="Profiles"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/profiles_label"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:gravity="center"
-                android:text="Profiles"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </FrameLayout>
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <Button
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:gravity="right"
+        >
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/create_new_profile_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="New Profile"
-            tools:layout_editor_absoluteX="153dp"
-            tools:layout_editor_absoluteY="387dp" />
-    </FrameLayout>
+            android:clickable="true"
+            android:contentDescription="Add"
+            android:focusable="true"
+            app:elevation="12dp"
+            android:layout_margin="16dp"
+            app:srcCompat="@android:drawable/ic_input_add" />
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
