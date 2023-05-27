@@ -8,7 +8,7 @@ import aueb.msc.model.Brand
 import aueb.msc.model.Model
 import aueb.msc.model.Profile
 
-@Database(entities = [Brand::class, Model::class, Profile::class], version = 1)
+@Database(entities = [Brand::class, Model::class, Profile::class], version = 2)
 abstract class AppDatabaseRoom: RoomDatabase() {
 
     abstract fun roomDao(): RoomDAO
@@ -22,6 +22,7 @@ abstract class AppDatabaseRoom: RoomDatabase() {
                     instance = Room.databaseBuilder(context.applicationContext,
                                                     AppDatabaseRoom::class.java,
                                                     "RoomDBManager").allowMainThreadQueries().
+                                                    fallbackToDestructiveMigration().
                                                     build()
                 }
             }

@@ -16,9 +16,9 @@ class MyApp : Application() {
         database = AppDatabaseRoom.getAppDatabase(this)!!
         // Clear database
         roomDAO = database.roomDao()
-        roomDAO.truncateBrand()
-        roomDAO.truncateModel()
         roomDAO.truncateProfile()
+        roomDAO.truncateModel()
+        roomDAO.truncateBrand()
 
         // Brands
         roomDAO.addBrand(Brand("TESLA", "Tesla"))

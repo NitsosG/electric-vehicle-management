@@ -21,12 +21,20 @@ interface RoomDAO {
     @Query("SELECT * FROM Profile")
     fun getProfiles() : List<Profile>
 
+    @Query("SELECT * FROM Profile WHERE name = :profileName")
+    fun getProfile(profileName : String) : Profile
+
     @Query("SELECT * FROM Model  WHERE brandCode = :brandCode")
     fun getBrandModels(brandCode : String) : List<Model>
 
+    @Query("SELECT * FROM Model  WHERE code = :modelCode")
+    fun getModel(modelCode : String) : Model
+
+    @Query("SELECT * FROM Brand WHERE code = :brandCode")
+    fun getBrand(brandCode : String): Brand
+
     @Query("SELECT * FROM Brand")
     fun getBrands(): List<Brand>
-
 
     @Query("DELETE FROM Brand")
     fun truncateBrand()

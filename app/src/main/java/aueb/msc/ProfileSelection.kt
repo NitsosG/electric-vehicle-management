@@ -24,6 +24,11 @@ class ProfileSelection : AppCompatActivity() {
         initObjects()
     }
 
+    override fun onResume() {
+        super.onResume()
+        initObjects()
+    }
+
     private fun initObjects() {
         // Create new profile
         val newProfileButton = findViewById<FloatingActionButton>(R.id.create_new_profile_button)
