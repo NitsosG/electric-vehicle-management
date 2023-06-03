@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import aueb.msc.model.Brand
+import aueb.msc.model.Location
 import aueb.msc.model.Model
 import aueb.msc.model.Profile
 
@@ -28,6 +29,7 @@ abstract class AppDatabaseRoom: RoomDatabase() {
             }
             return instance
         }
+
     }
 
 }
