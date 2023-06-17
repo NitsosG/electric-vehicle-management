@@ -47,7 +47,7 @@ class VehicleMonitorService : Service() {
     // Custom method to do a task
     private fun monitorVehicleData() {
         if(data.batteryLevel > BigDecimal.ZERO) {
-            var weight = Random().nextInt(100);
+            var weight = Random().nextInt(10);
             var level =
                 data.batteryLevel.minus(BigDecimal(0.05).multiply(BigDecimal(weight)))
                     .setScale(1, RoundingMode.DOWN)

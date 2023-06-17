@@ -15,9 +15,4 @@
         <!-- Add more attributes as needed -->
     </style>
 
-    <style name="ProgressBarHorizontal" parent="@android:style/Widget.ProgressBar.Horizontal">
-        <item name="android:layout_margin">15dp</item>
-        <item name="android:progressDrawable">@drawable/progress_horizontal</item>
-    </style>
-
 </resources>
