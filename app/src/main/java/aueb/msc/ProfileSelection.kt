@@ -1,5 +1,8 @@
 package aueb.msc
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,11 +20,16 @@ class ProfileSelection : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProfileRecycleViewAdapter
     private lateinit var profiles : MutableList<Profile>
+    private lateinit var notificationsManager: NotificationManager
+    private lateinit var notificationsChannel: NotificationChannel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_selection)
         initObjects()
+
+        notificationsManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
 
     override fun onResume() {

@@ -27,6 +27,12 @@
         <activity
             android:name=".VehicleProfileSetup"
             android:exported="true"></activity>
+
+        <service
+            android:name=".service.BatteryService"
+            android:enabled="true"
+            android:exported="true"
+            />
     </application>
 
 </manifest>
