@@ -1,0 +1,23 @@
+<resources>
+    <style name="LabelStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:textSize">14sp</item>
+        <!-- Add more attributes as needed -->
+    </style>
+
+    <style name="TextViewStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:gravity">center</item>
+        <!-- Add more attributes as needed -->
+    </style>
+
+    <style name="ProgressBarHorizontal" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:progressDrawable">@drawable/progress_horizontal</item>
+    </style>
+
+</resources>

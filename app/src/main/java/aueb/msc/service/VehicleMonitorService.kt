@@ -8,18 +8,19 @@ import android.os.IBinder
 import android.os.Looper
 import android.widget.Toast
 import java.math.BigDecimal
+import java.math.RoundingMode
 import java.util.*
 
-class BatteryService : Service() {
+class VehicleMonitorService : Service() {
 
     private lateinit var mHandler: Handler
     private lateinit var mRunnable: Runnable
-    private var level : BigDecimal = BigDecimal(100)
     private val binder = MyBinder()
+    private var data = VehicleMonitorData(BigDecimal(100),1000,150)
 
 
     inner class MyBinder : Binder() {
-        fun getService(): BatteryService = this@BatteryService
+        fun getService(): VehicleMonitorService = this@VehicleMonitorService
     }
 
     override fun onBind(intent: Intent): IBinder? {
@@ -28,7 +29,7 @@ class BatteryService : Service() {
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         // Send a notification that service is started
-        toast("Battery level service started.")
+        toast("Vehicle monitor service started.")
         // Do a periodic task
         mHandler = Handler(Looper.getMainLooper())
         mRunnable = Runnable { monitorVehicleData() }
@@ -39,14 +40,32 @@ class BatteryService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        toast("Battery Service destroyed.")
+        toast("Vehicle Service destroyed.")
         mHandler.removeCallbacks(mRunnable)
     }
 
     // Custom method to do a task
     private fun monitorVehicleData() {
-        level = level.minus(BigDecimal(0.1).multiply(BigDecimal(Random().nextInt(3))));
-        mHandler.postDelayed(mRunnable, 2000)
+        if(data.batteryLevel > BigDecimal.ZERO) {
+            var weight = Random().nextInt(100);
+            var level =
+                data.batteryLevel.minus(BigDecimal(0.05).multiply(BigDecimal(weight)))
+                    .setScale(1, RoundingMode.DOWN)
+
+            if(level < BigDecimal.ZERO){
+                data.batteryLevel = BigDecimal.ZERO
+            }else{
+                data.batteryLevel = level
+            }
+            if (weight > 7) {
+                data.totalKilometers = data.totalKilometers + 1
+                data.remainingKilometers = data.remainingKilometers - 1
+            }
+            mHandler.postDelayed(mRunnable, 2000)
+        }else{
+            data.batteryLevel = BigDecimal.ZERO;
+            data.remainingKilometers = 0
+        }
     }
 
 
@@ -54,7 +73,7 @@ class BatteryService : Service() {
         Toast.makeText(applicationContext, s, Toast.LENGTH_SHORT)
     }
 
-     public fun getLevel() : BigDecimal{
-        return level;
+    fun vehicleMonitorData() : VehicleMonitorData{
+        return data;
     }
 }

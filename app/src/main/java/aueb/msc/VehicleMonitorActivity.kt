@@ -7,6 +7,7 @@ import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.Handler
 import android.os.IBinder
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,8 +15,8 @@ import aueb.msc.db.AppDatabaseRoom
 import aueb.msc.model.Brand
 import aueb.msc.model.Model
 import aueb.msc.model.Profile
-import aueb.msc.service.BatteryService
-import java.math.RoundingMode
+import aueb.msc.service.VehicleMonitorService
+import aueb.msc.notification.batteryLevelNotification;
 
 
 class VehicleMonitorActivity : AppCompatActivity() {
@@ -24,8 +25,8 @@ class VehicleMonitorActivity : AppCompatActivity() {
     private lateinit var brand : Brand
     private lateinit var model : Model
     // Service
-    private val batteryService = BatteryService::class.java
-    private lateinit var boundService: BatteryService
+    private val vehicleMonitorService = VehicleMonitorService::class.java
+    private lateinit var boundService: VehicleMonitorService
     private var isBound = false
     // Handler - Runnable
     private lateinit var handler: Handler
@@ -34,7 +35,7 @@ class VehicleMonitorActivity : AppCompatActivity() {
 
     private val connection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            val binder = service as BatteryService.MyBinder
+            val binder = service as VehicleMonitorService.MyBinder
             boundService = binder.getService()
             isBound = true
         }
@@ -60,9 +61,13 @@ class VehicleMonitorActivity : AppCompatActivity() {
             override fun run() {
 
                 // Check if service is bound
-                // Example: Refresh a TextView with battery level
+                // Example: Refresh a elements
                 if (isBound) {
-                    findViewById<TextView>(R.id.monitor_battery_level).text =  boundService.getLevel().setScale(1,RoundingMode.HALF_DOWN).toString();
+                    batteryLevelNotification(applicationContext, boundService.vehicleMonitorData().batteryLevel);
+                    findViewById<TextView>(R.id.monitor_battery_level).text =  boundService.vehicleMonitorData().batteryLevel.toString()
+                    findViewById<TextView>(R.id.monitor_remaining_km).text =  boundService.vehicleMonitorData().remainingKilometers.toString();
+                    findViewById<TextView>(R.id.monitor_total_km).text =  boundService.vehicleMonitorData().totalKilometers.toString();
+                    findViewById<ProgressBar>(R.id.monitor_battery_bar).progress =  boundService.vehicleMonitorData().batteryLevel.toInt();
                 }
                 // Schedule the next refresh after a certain delay
                 handler.postDelayed(this, 2000) // Refresh every 1 second
@@ -75,7 +80,7 @@ class VehicleMonitorActivity : AppCompatActivity() {
 
     private fun initServices() {
         //Why??
-        serviceIntent = Intent(this, batteryService)
+        serviceIntent = Intent(this, vehicleMonitorService)
         startService(serviceIntent)
         bindService(serviceIntent, connection, Context.BIND_AUTO_CREATE)
     }

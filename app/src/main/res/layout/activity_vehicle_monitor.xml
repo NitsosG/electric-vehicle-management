@@ -16,12 +16,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            style="@style/LabelStyle"
             android:text="Profile Name" />
 
         <TextView
             android:id="@+id/monitor_profile_name_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            style="@style/TextViewStyle"
             android:layout_weight="1"/>
     </LinearLayout>
 
@@ -35,12 +37,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/LabelStyle"
             android:text="Plate Number" />
 
         <TextView
             android:id="@+id/monitor_plate_number_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -54,12 +58,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/LabelStyle"
             android:text="Model Name" />
 
         <TextView
             android:id="@+id/monitor_brand_name_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -73,12 +79,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/LabelStyle"
             android:text="Model Name" />
 
         <TextView
             android:id="@+id/monitor_model_name_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -92,14 +100,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/LabelStyle"
             android:text="Battery Level" />
 
         <TextView
             android:id="@+id/monitor_battery_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:layout_weight="1"
-            android:text="75%"
             />
     </LinearLayout>
 
@@ -113,14 +122,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Battery Level" />
+            style="@style/LabelStyle"
+            android:text="Remaining km" />
 
         <TextView
             android:id="@+id/monitor_remaining_km"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:layout_weight="1"
-            android:text="180 km"
             />
     </LinearLayout>
 
@@ -134,15 +144,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/LabelStyle"
             android:text="Total km" />
 
         <TextView
             android:id="@+id/monitor_total_km"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:layout_weight="1"
-            android:text="26.500"
             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ProgressBar
+            android:id="@+id/monitor_battery_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            style="@style/ProgressBarHorizontal" />
     </LinearLayout>
 
     <LinearLayout
