@@ -7,6 +7,7 @@ import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.Handler
 import android.os.IBinder
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -15,11 +16,12 @@ import aueb.msc.db.AppDatabaseRoom
 import aueb.msc.model.Brand
 import aueb.msc.model.Model
 import aueb.msc.model.Profile
+import aueb.msc.notification.batteryLevelNotification
 import aueb.msc.service.VehicleMonitorService
-import aueb.msc.notification.batteryLevelNotification;
 
 
 class VehicleMonitorActivity : AppCompatActivity() {
+    private val activity = this@VehicleMonitorActivity
     private lateinit var database: AppDatabaseRoom
     private lateinit var profile: Profile
     private lateinit var brand : Brand
@@ -94,6 +96,12 @@ class VehicleMonitorActivity : AppCompatActivity() {
         brand = database.roomDao().getBrand(model.brandCode)
         findViewById<TextView>(R.id.monitor_brand_name_view).text = brand.name
         findViewById<TextView>(R.id.monitor_model_name_view).text = model.name
+
+        val findChargeButton = findViewById<Button>(R.id.find_charger_button)
+        findChargeButton.setOnClickListener() {
+            val intent = Intent(activity, MapActivity::class.java)
+            startActivity(intent)
+        }
 
     }
     private fun toast(s: String) {
