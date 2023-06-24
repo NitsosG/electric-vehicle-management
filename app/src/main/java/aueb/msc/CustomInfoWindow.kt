@@ -1,12 +1,11 @@
 package aueb.msc
 
-import android.app.Activity
 import android.view.View
 import android.widget.TextView
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 
-class CustomInfoWindow(context: MapFragment) : GoogleMap.InfoWindowAdapter {
+class CustomInfoWindow(context: MapActivity) : GoogleMap.InfoWindowAdapter {
 
     var mContext = context
     var mWindow = (context).layoutInflater.inflate(R.layout.custom_info_window, null)
