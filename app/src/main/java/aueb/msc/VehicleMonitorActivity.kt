@@ -53,7 +53,6 @@ class VehicleMonitorActivity : AppCompatActivity() {
         initServices()
         initObjects()
         initHandler()
-
     }
 
     private fun initHandler() {

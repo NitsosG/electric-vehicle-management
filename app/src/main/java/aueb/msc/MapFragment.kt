@@ -39,7 +39,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(p0: GoogleMap) {
         val initialLocation = LatLng(37.983810, 23.727539)
-
         p0.mapType = GoogleMap.MAP_TYPE_NORMAL;
         p0.uiSettings.setZoomControlsEnabled(true);
         p0.uiSettings.setZoomGesturesEnabled(true);

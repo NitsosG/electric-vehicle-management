@@ -1,6 +1,7 @@
 package aueb.msc
 
 import android.content.Intent
+import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -67,14 +68,34 @@ class VehicleProfileSetup : AppCompatActivity() {
 
         // Submit button
         val vehicleProfileSubmitButton = findViewById<Button>(R.id.vehicle_profile_submit_button)
+
         vehicleProfileSubmitButton.setOnClickListener(){
+            var successfulValidation = true
+            var validationMessage = ""
             val profileName = findViewById<EditText>(R.id.profileNameValue).text.toString()
             val plateNumber = findViewById<EditText>(R.id.plateNumberValue).text.toString()
             val modelSelected = findModel(modelSpinner.selectedItem.toString()).code
-            database.roomDao().addProfile(Profile(profileName, plateNumber, modelSelected))
-            // Redirect to Profiles activity
-            val intent = Intent(activity, ProfileSelection::class.java)
-            startActivity(intent)
+            if(plateNumber.isNullOrEmpty()){
+                validationMessage = "Plate number can not be empty"
+                successfulValidation = false
+                Toast.makeText(this, "Validation successful", Toast.LENGTH_LONG).show()
+
+            }
+            try {
+                database.roomDao().addProfile(Profile(profileName, plateNumber, modelSelected))
+            }catch (e : SQLiteConstraintException){
+                validationMessage = "A profile with the same name exists. Use a different name"
+                Toast.makeText(this, "Validation successful", Toast.LENGTH_LONG).show()
+                successfulValidation = false
+            }
+            if(successfulValidation){
+                // Redirect to Profiles activity
+                val intent = Intent(activity, ProfileSelection::class.java)
+                startActivity(intent)
+            }else{
+
+                findViewById<TextView>(R.id.validation_text_view).text = validationMessage;
+            }
         }
 
     }

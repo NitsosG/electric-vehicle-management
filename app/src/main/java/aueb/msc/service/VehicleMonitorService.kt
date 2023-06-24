@@ -6,7 +6,6 @@ import android.os.Binder
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
-import android.widget.Toast
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.util.*
@@ -28,8 +27,6 @@ class VehicleMonitorService : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        // Send a notification that service is started
-        toast("Vehicle monitor service started.")
         // Do a periodic task
         mHandler = Handler(Looper.getMainLooper())
         mRunnable = Runnable { monitorVehicleData() }
@@ -40,7 +37,6 @@ class VehicleMonitorService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        toast("Vehicle Service destroyed.")
         mHandler.removeCallbacks(mRunnable)
     }
 
@@ -61,16 +57,11 @@ class VehicleMonitorService : Service() {
                 data.totalKilometers = data.totalKilometers + 1
                 data.remainingKilometers = data.remainingKilometers - 1
             }
-            mHandler.postDelayed(mRunnable, 2000)
         }else{
             data.batteryLevel = BigDecimal.ZERO;
             data.remainingKilometers = 0
         }
-    }
-
-
-    private fun toast(s: String) {
-        Toast.makeText(applicationContext, s, Toast.LENGTH_SHORT)
+        mHandler.postDelayed(mRunnable, 2000)
     }
 
     fun vehicleMonitorData() : VehicleMonitorData{
