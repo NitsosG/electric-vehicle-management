@@ -43,8 +43,8 @@ class MyApp : Application() {
 
 
         // Profiles
-        roomDAO.addProfile(Profile("James Bond", "007", "MODEL_X"))
-        roomDAO.addProfile(Profile("Batman", "Bat 001", "KA_E"))
+        roomDAO.addProfile(Profile("James Bond", "007", "MODEL_X", null))
+        roomDAO.addProfile(Profile("Batman", "Bat 001", "KA_E", null))
 
     }
 }
