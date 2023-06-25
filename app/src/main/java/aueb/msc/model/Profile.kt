@@ -11,4 +11,4 @@ import androidx.room.PrimaryKey
         childColumns = ["modelCode"],
     )]
 )
-data class Profile(@PrimaryKey val name:String, val plateNumber:String, val modelCode:String)
+data class Profile(@PrimaryKey val name:String, val plateNumber:String, val modelCode:String, val imageUri:String?)
