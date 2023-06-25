@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/LinearLayoutStyle"
     tools:context=".VehicleProfileSetup">
 
     <LinearLayout
@@ -16,6 +17,7 @@
         tools:layout_editor_absoluteY="1dp">
 
         <TextView
+            style="@style/TextFormViewStyle"
             android:id="@+id/profileNameLabel"
             android:layout_width="match_parent"
             android:layout_height="34dp"
@@ -26,6 +28,7 @@
 
 
         <EditText
+            style="@style/EditFormViewStyle"
             android:id="@+id/profileNameValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,17 +37,19 @@
             android:text="Profile One" />
 
         <TextView
+            style="@style/TextFormViewStyle"
             android:id="@+id/plateNumberLabel"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:text="PLate Number"
+            android:text="Plate Number"
             android:gravity="center"/>
 
 
         <EditText
             android:id="@+id/plateNumberValue"
+            style="@style/EditFormViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -54,6 +59,7 @@
 
         <TextView
             android:id="@+id/brandLabel"
+            style="@style/TextFormViewStyle"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:textSize="18sp"
@@ -63,6 +69,7 @@
 
         <Spinner
             android:id="@+id/brandSpinner"
+            style="@style/EditFormViewStyle"
             android:layout_width="409dp"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -71,6 +78,7 @@
 
         <TextView
             android:id="@+id/modelLabel"
+            style="@style/TextFormViewStyle"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:textSize="18sp"
@@ -82,12 +90,14 @@
         <Spinner
             android:id="@+id/modelSpinner"
             android:layout_width="409dp"
+            style="@style/EditFormViewStyle"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="34dp" />
 
         <Button
+            style="@style/ButtonStyle"
             android:id="@+id/take_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,6 +109,7 @@
             />
 
         <Button
+            style="@style/ButtonStyle"
             android:id="@+id/vehicle_profile_submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,10 +121,13 @@
             />
 
         <TextView
+            style="@style/TextFormViewStyle"
             android:id="@+id/validation_text_view"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:textColor="#FF0000"/>
+
+
 
     </LinearLayout>
 

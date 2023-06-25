@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    style="@style/LinearLayoutStyle"
     app:layout_constraintTop_toTopOf="parent">
 
     <LinearLayout
@@ -14,9 +15,7 @@
 
         <TextView
             android:id="@+id/profile_name"
-            style="@style/TextViewStyle"
-            android:layout_width="46dp"
-            android:layout_height="40dp"
+            style="@style/LabelStyle"
             android:layout_weight="2"
             android:text="TextView" />
 
@@ -25,6 +24,7 @@
             android:id="@+id/select_profile_button"
             android:layout_width="25dp"
             android:layout_height="40dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="Select" />
 

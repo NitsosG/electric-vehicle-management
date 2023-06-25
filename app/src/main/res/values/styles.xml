@@ -1,28 +1,66 @@
 <resources>
+
+    <style name="LinearLayoutStyle">
+        <item name="android:background">@color/background_color</item>
+    </style>
+
+    <style name="HeadingStyle">
+        <item name="android:textColor">@color/background_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/header</item>
+        <!-- Add more attributes as needed -->
+    </style>
+
     <style name="LabelStyle">
         <item name="android:textColor">@color/text</item>
-        <item name="android:layout_marginTop">15dp</item>
-        <item name="android:layout_marginLeft">5dp</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">25dp</item>
         <!-- Add more attributes as needed -->
     </style>
 
     <style name="TextViewStyle">
         <item name="android:textColor">@color/text</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">viewEnd</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">25dp</item>
+    </style>
+
+    <style name="TextFormViewStyle">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="EditFormViewStyle">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:titleMarginStart">15dp</item>
-
-<!--        style="?android:attr/borderlessButtonStyle"-->
-
-        <!-- Add more attributes as needed -->
     </style>
 
     <style name="ButtonStyle">
-        <item name="android:textColor">@color/textButton</item>
+        <item name="android:textColor">@color/background_color</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:backgroundTint">@color/background_color</item>
+        <item name="android:backgroundTint">@color/header</item>
+    </style>
+
+    <style name="FloatingButtonStyle">
+        <item name="android:textColor">@color/header</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:backgroundTint">@color/header</item>
+
+    </style>
+
+    <style name="ImageStyle">
+        <item name="android:textColor">@color/header</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

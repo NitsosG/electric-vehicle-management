@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    style="@style/LinearLayoutStyle"
     tools:context=".VehicleMonitorActivity">
 
     <LinearLayout
@@ -14,18 +15,16 @@
 
         <TextView
             android:id="@+id/monitor_profile_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/LabelStyle"
-            android:text="Profile Name" />
+            android:layout_weight="1"
+            android:text="Profile Name:" />
 
         <TextView
             android:id="@+id/monitor_profile_name_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             style="@style/TextViewStyle"
-            android:layout_weight="1"/>
+            android:text="ddsdfsdfs"
+            android:layout_weight="1" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -35,19 +34,17 @@
 
         <TextView
             android:id="@+id/monitor_plate_number_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/LabelStyle"
-            android:text="Plate Number" />
+            android:text="Plate Number:" />
 
         <TextView
             android:id="@+id/monitor_plate_number_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/TextViewStyle"
             android:layout_weight="1" />
     </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,16 +53,12 @@
 
         <TextView
             android:id="@+id/monitor_brand_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/LabelStyle"
-            android:text="Model Name" />
+            android:text="Model Name: " />
 
         <TextView
             android:id="@+id/monitor_brand_name_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/TextViewStyle"
             android:layout_weight="1" />
     </LinearLayout>
@@ -77,16 +70,12 @@
 
         <TextView
             android:id="@+id/monitor_model_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/LabelStyle"
-            android:text="Model Name" />
+            android:text="Model Name:" />
 
         <TextView
             android:id="@+id/monitor_model_name_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/TextViewStyle"
             android:layout_weight="1" />
     </LinearLayout>
@@ -98,16 +87,12 @@
 
         <TextView
             android:id="@+id/monitor_remaining_km_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/LabelStyle"
-            android:text="Remaining km" />
+            android:text="Remaining km:" />
 
         <TextView
             android:id="@+id/monitor_remaining_km"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/TextViewStyle"
             android:layout_weight="1"
             />
@@ -120,16 +105,12 @@
 
         <TextView
             android:id="@+id/monitor_total_km_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/LabelStyle"
-            android:text="Total km" />
+            android:text="Total km:" />
 
         <TextView
             android:id="@+id/monitor_total_km"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/TextViewStyle"
             android:layout_weight="1"
             />
@@ -142,16 +123,12 @@
 
         <TextView
             android:id="@+id/monitor_battery_level_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/LabelStyle"
-            android:text="Battery Level" />
+            android:text="Battery Level:" />
 
         <TextView
             android:id="@+id/monitor_battery_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             style="@style/TextViewStyle"
             android:layout_weight="1"
             />
@@ -181,15 +158,17 @@
         android:orientation="horizontal">
 
         <Button
+            style="@style/ButtonStyle"
             android:id="@+id/find_charger_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="50dp"
             android:layout_weight="1"
-            android:text="Find charging station"
-            android:layout_margin="50dp"/>
+            android:text="Find charging station" />
     </LinearLayout>
 
     <ImageView
+        android:background="@color/background_color"
         android:id="@+id/car_img"
         android:layout_width="match_parent"
         android:layout_height="250dp"

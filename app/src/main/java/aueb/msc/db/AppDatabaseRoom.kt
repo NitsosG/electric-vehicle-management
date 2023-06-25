@@ -9,7 +9,7 @@ import aueb.msc.model.Location
 import aueb.msc.model.Model
 import aueb.msc.model.Profile
 
-@Database(entities = [Brand::class, Model::class, Profile::class], version = 2)
+@Database(entities = [Brand::class, Model::class, Profile::class], version = 1 )
 abstract class AppDatabaseRoom: RoomDatabase() {
 
     abstract fun roomDao(): RoomDAO
