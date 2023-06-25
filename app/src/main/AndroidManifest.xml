@@ -18,8 +18,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ElectricVehicleManagement"
-        tools:targetApi="31">
+        android:theme="@style/Theme.AppCompat.Light">
+<!--        android:theme="@style/Theme.ElectricVehicleManagement"-->
+<!--        tools:targetApi="31">-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAbHHTY6Fp-RrA1Evwd_CGk8BChpFCshC4"/>
@@ -45,6 +46,11 @@
 
         <service
             android:name=".service.VehicleMonitorService"
+            android:enabled="true"
+            android:exported="true"
+            />
+        <service
+            android:name=".service.ChargingStationsService"
             android:enabled="true"
             android:exported="true"
             />
