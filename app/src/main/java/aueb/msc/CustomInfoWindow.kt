@@ -20,7 +20,7 @@ class CustomInfoWindow(context: MapActivity) : GoogleMap.InfoWindowAdapter {
 
     }
 
-    override fun getInfoContents(marker: Marker): View {
+    override fun getInfoContents(marker: Marker): View? {
         rendowWindowText(marker, mWindow)
         return mWindow
     }
